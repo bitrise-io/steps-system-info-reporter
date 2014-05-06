@@ -28,6 +28,9 @@ echo "--- Tools Information ---"
 printAndExecuteCommand "brew --version"
 printAndExecuteCommand "which brew"
 echo
+printAndExecuteCommand "xctool --version"
+printAndExecuteCommand "which xctool"
+echo
 printAndExecuteCommand "git --version"
 printAndExecuteCommand "which git"
 echo
