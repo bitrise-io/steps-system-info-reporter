@@ -27,12 +27,21 @@ echo "-------------------------"
 echo "--- Tools Information ---"
 printAndExecuteCommand "brew --version"
 printAndExecuteCommand "which brew"
+printAndExecuteCommand "brew list"
 echo
 printAndExecuteCommand "xctool --version"
 printAndExecuteCommand "which xctool"
 echo
 printAndExecuteCommand "git --version"
 printAndExecuteCommand "which git"
+echo
+printAndExecuteCommand "wget --version"
+printAndExecuteCommand "which wget"
+echo
+printAndExecuteCommand "npm --version"
+printAndExecuteCommand "node --version"
+printAndExecuteCommand "which node"
+
 echo
 printAndExecuteCommand "ruby --version"
 printAndExecuteCommand "which ruby"
@@ -54,7 +63,3 @@ echo "-------------------"
 echo "--- Environment ---"
 printAndExecuteCommand "env"
 
-echo
-echo "---------------"
-echo "--- Network ---"
-printAndExecuteCommand "ifconfig"
