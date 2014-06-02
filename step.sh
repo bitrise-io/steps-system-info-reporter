@@ -43,6 +43,10 @@ printAndExecuteCommand "node --version"
 printAndExecuteCommand "which node"
 
 echo
+printAndExecuteCommand "rvm --version"
+printAndExecuteCommand "which rvm"
+printAndExecuteCommand "rvm list"
+echo
 printAndExecuteCommand "ruby --version"
 printAndExecuteCommand "which ruby"
 echo
