@@ -17,6 +17,10 @@ echo "-----------------------"
 printAndExecuteCommand "sw_vers -productVersion"
 printAndExecuteCommand "system_profiler SPSoftwareDataType"
 
+echo "--- Other System Information ---"
+printAndExecuteCommand "df -h"
+echo "--------------------------------"
+
 echo
 echo "-------------------------"
 echo "--- Xcode Information ---"
