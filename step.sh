@@ -25,6 +25,7 @@ echo
 echo "-------------------------"
 echo "--- Xcode Information ---"
 printAndExecuteCommand "xcodebuild -version"
+printAndExecuteCommand "xcodebuild -showsdks"
 
 echo
 echo "-------------------------"
