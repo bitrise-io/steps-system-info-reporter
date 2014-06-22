@@ -24,9 +24,15 @@ function execute_to_formatted_output {
   $1 >> $formatted_output_file_path 
 }
 
+function execute_as_code_to_formatted_output {
+  formatted_code_output=$($1 | awk '{print "    " $0}')
+  echo "$formatted_code_output" >> $formatted_output_file_path 
+}
+
 function execute_with_note_to_formatted_output {
-  printf '%s' "$1" >> $formatted_output_file_path 
-  $2 >> $formatted_output_file_path 
+  printf '%s' "$1" >> $formatted_output_file_path
+  cmd_res=$(eval "$2")
+  echo "$cmd_res" >> $formatted_output_file_path
 }
 
 echo "--- OS X Information ---"
@@ -42,7 +48,8 @@ echo "--- Other System Information ---"
 printAndExecuteCommand "df -h"
 #
 write_section_to_formatted_output '# Other System Information'
-execute_to_formatted_output 'df -h'
+write_section_to_formatted_output '## HDD'
+execute_as_code_to_formatted_output df -h
 echo "--------------------------------"
 
 echo
@@ -52,8 +59,10 @@ printAndExecuteCommand "xcodebuild -version"
 printAndExecuteCommand "xcodebuild -showsdks"
 #
 write_section_to_formatted_output '# Xcode Information'
-execute_to_formatted_output 'xcodebuild -version'
-execute_to_formatted_output 'xcodebuild -showsdks'
+write_section_to_formatted_output '## Xcode Version'
+execute_as_code_to_formatted_output 'xcodebuild -version'
+write_section_to_formatted_output '## Xcode SDKs'
+execute_as_code_to_formatted_output 'xcodebuild -showsdks'
 
 echo
 echo "-------------------------"
@@ -82,6 +91,10 @@ execute_with_note_to_formatted_output '- NodeJS Version: ' 'node --version'
 printAndExecuteCommand "which node"
 
 echo
+printAndExecuteCommand "python --version"
+execute_with_note_to_formatted_output '- Python Version: ' 'python --version 2>&1'
+printAndExecuteCommand "which python"
+echo
 printAndExecuteCommand "rvm --version"
 execute_with_note_to_formatted_output '- RVM Version: ' 'rvm --version'
 printAndExecuteCommand "which rvm"
@@ -94,10 +107,6 @@ echo
 printAndExecuteCommand "pod --version"
 execute_with_note_to_formatted_output '- Cocoapods Version: ' 'pod --version'
 printAndExecuteCommand "which pod"
-echo
-printAndExecuteCommand "python --version"
-execute_with_note_to_formatted_output '- Python Version: ' 'python --version'
-printAndExecuteCommand "which python"
 
 echo
 echo "------------"
@@ -109,4 +118,6 @@ echo
 echo "-------------------"
 echo "--- Environment ---"
 printAndExecuteCommand "env"
+
+
 
