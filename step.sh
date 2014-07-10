@@ -1,6 +1,6 @@
 #!/bin/bash
 
-formatted_output_file_path="$CONCRETE_STEP_FORMATTED_OUTPUT_FILE_PATH"
+formatted_output_file_path="$BITRISE_STEP_FORMATTED_OUTPUT_FILE_PATH"
 
 function printAndExecuteCommand {
   echo "$ $1"
