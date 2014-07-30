@@ -49,6 +49,13 @@ echo "-----------------------"
 printAndExecuteCommand "sw_vers -productVersion"
 printAndExecuteCommand "sw_vers"
 printAndExecuteCommand "system_profiler SPSoftwareDataType"
+# CPU and memory information
+echo "$ sysctl -a | grep cpu.core_count"
+sysctl -a | grep cpu.core_count
+echo "$ sysctl -a | grep cpu.thread_count"
+sysctl -a | grep cpu.thread_count
+echo "$ sysctl -a | grep mem"
+sysctl -a | grep mem
 #
 write_section_to_formatted_output '# OS X Information'
 execute_to_formatted_output 'sw_vers -productVersion'
