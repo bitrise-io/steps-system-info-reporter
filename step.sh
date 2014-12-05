@@ -142,6 +142,15 @@ execute_with_note_to_formatted_output '- **Go: GOPATH**: ' "echo $GOPATH"
 printAndExecuteCommand "which pod"
 
 echo
+printAndExecuteCommand "ansible --version"
+execute_with_note_to_formatted_output '- **Ansible Version**: ' 'ansible --version'
+printAndExecuteCommand "which ansible"
+
+echo
+printAndExecuteCommand "gem -v nomad-cli"
+execute_with_note_to_formatted_output '- **Nomad-CLI Version**: ' 'gem -v nomad-cli'
+
+echo
 echo "------------"
 echo "--- User ---"
 printEnvVar "HOME"
