@@ -12,6 +12,7 @@ source:
   git: https://github.com/bitrise-io/steps-system-info-reporter.git
 host_os_tags:
   - osx-10.9
+  - osx-10.10
 type_tags:
   - osx
   - system
